@@ -67,32 +67,23 @@ function createUser() {
     showPage('loginPage');  
 }  
 // 登录函数  
-function Login() {  
+function checkLogin() {  
     // 获取输入框中的用户名和密码  
-    var loginUsername = document.getElementById("loginUsername").value;  
-    var loginPassword = document.getElementById("loginPassword").value; // 假设密码框的ID是loginPassword   
+    var username = document.getElementById("loginUsername").value;  
+    var password = document.getElementById("loginPassword").value;  
   
-    var cookieUsername = getCookie('username');  
-    var cookiePassword = getCookie('password');  
-    if (cookieUsername && cookiePassword) {  
-        document.getElementById("loginUsername").value = cookieUsername;  
-        document.getElementById("loginPassword").value = cookiePassword;  
-    }  
-      
-    // TODO: Add your actual login verification code here  
-    // For demonstration purposes, let's assume any entered username/password is valid  
-    if (loginUsername && loginPassword) { // 假设这里进行了验证  
-        // Set cookie again to extend expiration  
-        setCookie('username', loginUsername, 7);  
-        setCookie('password', loginPassword, 7);  
-          
-        // Redirect to shopping page  
+    // 从cookie中获取存储的用户名和密码（这里假设有相应的getCookie函数）  
+    var storedUsername = getCookie('username');  
+    var storedPassword = getCookie('password');  
+  
+    // 比较输入的用户名和密码与cookie中的是否匹配  
+    if (username === storedUsername && password === storedPassword) {  
+        // 如果匹配，跳转到购物车页面  
         showPage('shoppingPage');  
     } else {  
-        // If no matching user is found, return to the Create User page  
-        window.location.href = 'index.html';  
-        // Display error messages (if needed)  
-        alert("Invalid username or password. Please try again.");  
+        // 如果不匹配，显示错误消息  
+        alert('用户名或密码错误，请尝试重新输入或跳转到注册页面进行创建。');  
+        // 这里可以添加跳转到注册页面的代码，例如：showPage('registerPage');  
     }  
 }  
 /**  
