@@ -18,15 +18,18 @@
             <a href="Contact.html">Contact</a>  
           </div> 
 
-          <div id="createUserPage" class="page">  
-            <!-- Login Page -->  
-            <h2>Login</h2>   
-            <div class="page-content">  
-                <input type="text" id="username" placeholder="Enter your username">    
-                <input type="password" id="password" placeholder="Enter your password">    
-                <button onclick="Login()">Login</button>   
-            </div>  
-        </div>  
+          <div id="loginPage" class="page">  <!-- 登录页面的ID保持不变 -->  
+    <!-- Login page -->    
+    <h2>Login</h2>    
+    <input type="text" id="loginUsername" placeholder="Enter your English username">    
+    <input type="password" id="loginPassword" placeholder="Enter your numeric password">    
+    <button onclick="checkLogin()">Login</button>  <!-- 更改登录按钮的onclick事件为checkLogin -->  
+    <footer>    
+        <div class="footer-content">    
+        <p>&copy; 2024 Vincent Shopping App. All rights reserved.</p>    
+        <p>For assistance, please contact us at: <a href="2318251322@qq.com">2318251322@qq.com</a></p>      
+        </footer>   
+</div>    
         <div id="shoppingPage" class="page hidden">  
           <!-- Shopping page -->  
   <div class="shopping-page">  
